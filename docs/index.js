@@ -11,7 +11,6 @@ function reverseString(str) {
   }
   return reversed;
 }
-reverseString("Melodi"); 
 
 /*
   Ejercicio 2: Check for Palindrome
@@ -27,7 +26,6 @@ function isPalindrome(str) {
   }
   return formattedStr === reversed;
 }
-isPalindrome("Melodi");
 
 /*
   Ejercicio 3: Find the Nearest Pair
@@ -44,8 +42,22 @@ isPalindrome("Melodi");
 
 function closestPair(arr) {
   // Tu solución acá
-}
+  if (arr.length < 2) {
+    return [];
+  }
+  let sorted = arr.sort((a, b) => a - b);
+  let minDiff = sorted[1] - sorted[0];
+  let pair = [sorted[0], sorted[1]];
 
+  for (let i = 1; i < sorted.length - 1; i++) {
+    let diff = sorted[i + 1] - sorted[i];
+    if (diff < minDiff) {
+      minDiff = diff;
+      pair = [sorted[i], sorted[i + 1]];
+    }
+  }
+  return pair;
+}
 
 /*
   Ejercicio 4: Calculadora - Programación Orientada a Objetos
