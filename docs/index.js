@@ -94,7 +94,60 @@ function closestPair(arr) {
 
 class Calculator {
   // Tu solución acá
+  constructor() {
+    this.lastResult = 0;
+  }
+
+  validateInput(a, b) {
+    if (typeof a !== 'number' || typeof b !== 'number') {
+      throw new Error('Invalid input, please enter a numbers only');
+    }
+  }
+
+  add(a, b) {
+    this.validateInput(a, b);
+    this.lastResult = a + b;
+    return this.lastResult;
+  }
+
+  subtract(a, b) {
+    this.validateInput(a, b);
+    this.lastResult = a - b;
+    return this.lastResult;
+  }
+
+  multiply(a, b) {
+    this.validateInput(a, b);
+    this.lastResult = a * b;
+    return this.lastResult;
+  }
+
+  divide(a, b) {
+    this.validateInput(a, b);
+    if (b === 0) {
+      throw new Error('Division by zero is not allowed');
+    }
+    this.lastResult = a / b;
+    return this.lastResult;
+  }
+
+  getLastResult() {
+    return this.lastResult;
+  }
 }
+
+Calculator.prototype.exponentiate = function (base, exponent) {
+  this.validateInput(base, exponent);
+  if (exponent === 0) {
+    this.lastResult = 1;
+  } else if (exponent < 0) {
+    throw new Error('Exponentiation with negative exponent is not allowed');
+  } else {
+    this.lastResult = base ** exponent;            //ES7 operador de exponente (**)
+  }
+  return this.lastResult;
+};
+
 
 module.exports = {
   closestPair,
