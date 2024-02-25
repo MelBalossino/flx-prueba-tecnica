@@ -20,7 +20,14 @@ reverseString("Melodi");
 */
 function isPalindrome(str) {
   // Tu solución acá
+  let formattedStr = str.toLowerCase().replace(/[^a-z0-9]/g, '');
+  let reversed = "";
+  for (let i = formattedStr.length - 1; i >= 0; i--) {
+    reversed += formattedStr[i];
+  }
+  return formattedStr === reversed;
 }
+isPalindrome("Melodi");
 
 /*
   Ejercicio 3: Find the Nearest Pair
