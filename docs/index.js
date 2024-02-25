@@ -45,18 +45,19 @@ function closestPair(arr) {
   if (arr.length < 2) {
     return [];
   }
-  let sorted = arr.sort((a, b) => a - b);
-  let minDiff = sorted[1] - sorted[0];
-  let pair = [sorted[0], sorted[1]];
+
+  let sorted = arr.sort((a, b) => a - b);        //[1,2,4,7,9,10]
+  let minDiff = sorted[1] - sorted[0];           //2-1=1
+  let pair = [sorted[0], sorted[1]];             //[1,2]
 
   for (let i = 1; i < sorted.length - 1; i++) {
-    let diff = sorted[i + 1] - sorted[i];
-    if (diff < minDiff) {
+    let diff = sorted[i + 1] - sorted[i];        //2-1=1, 4-2=2, 7-4=3, 9-7=2, 10-9=1
+    if (diff < minDiff) {                        //1<1, 2<1, 3<1, 2<1, 1<1
       minDiff = diff;
       pair = [sorted[i], sorted[i + 1]];
     }
   }
-  return pair;
+  return pair;                                   //[1,2]
 }
 
 /*
