@@ -1,0 +1,21 @@
+.table-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.ant-table-wrapper {
+    width: 100%;
+    max-width: 1088px;
+    margin: auto;
+}
+
+.ant-table-pagination.ant-pagination {
+    text-align: right;
+}
+
+.ant-table-pagination {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
