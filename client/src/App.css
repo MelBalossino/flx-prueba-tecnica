@@ -1,0 +1,59 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+:root {
+  --primary-font: 'Roboto', sans-serif;
+  --secondary-font: 'Inter', sans-serif;
+  ;
+  --primary-color: #1C58F8;
+  --secondary-color: #070F26;
+  --color-silver: #dcdcdc;
+  --color-black: #000000;
+  --color-white: #FFFFFF;
+  --color-icons: #0B1232;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-bottom: 1rem;
+  color: var(--secondary-color);
+  font-family: var(--primary-font);
+}
+
+a {
+  text-decoration: none;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+.main {
+  padding-top: 70px;
+}
+
+.container {
+  width: 90vw;
+  margin: 0 auto;
+  position: relative;
+}
+
+
+/*LARGE DESKTOP*/
+@media (min-width: 1200px) {
+  .container {
+    width: 80vw;
+  }
+}
