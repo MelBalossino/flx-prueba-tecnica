@@ -1,3 +1,5 @@
+//! Modularización de las columnas de la tabla de usuarios
+
 import React from "react";
 import { Tag, Space } from 'antd';
 

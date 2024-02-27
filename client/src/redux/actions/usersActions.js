@@ -1,8 +1,8 @@
 import axios from 'axios';
 import { v4 as uuidv4 } from 'uuid';
-import { getUsers, createUser, deleteUser, updateUser, searchUsers } from '../slices/usersSlice';
+import { getUsers, createUser, deleteUser, updateUser } from '../slices/usersSlice';
 
-const apiUrl = import.meta.env.VITE_BASE_URL;
+const apiUrl = import.meta.env.VITE_BASE_URL;                              //! <= Uso de variables de entorno.
 
 export const getAllUsers = (page = 1, limit = 9) => async (dispatch) => {  //! <= Paginación con limit y offset.
     try {

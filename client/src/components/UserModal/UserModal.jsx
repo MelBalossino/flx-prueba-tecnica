@@ -47,7 +47,7 @@ const UserModal = ({ isVisible, handleCancel, user, actionType, onSubmit }) => {
             ]}
             destroyOnClose
         >
-            <Form 
+            <Form                             //! <= Formulario con validaciones de antd. 
             form={form} 
             layout='vertical' 
             onFinish={onSubmit} 

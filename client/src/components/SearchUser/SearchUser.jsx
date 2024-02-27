@@ -16,15 +16,6 @@ const SearchUser = () => {
         dispatch(searchUser(value));
     };
 
-    const onChange = (e) => {
-        setSearchTerm(e.target.value);
-    };
-
-    const onClearSearch = () => {
-        setSearchTerm("");
-        dispatch(searchUser(""));
-    };
-
     const onFocus = () => {
         setIsFocused(true);
     };
@@ -45,7 +36,7 @@ const SearchUser = () => {
                 `}
             </style>
             <Search
-                placeholder={isFocused ? "search text" : "Buscar usuarios"}
+                placeholder={isFocused ? "search text" : "Buscar usuarios"}    //! <= Cambia el texto del placeholder dependiendo del estado de enfoque como se muestra en el diseño Figma.
                 onSearch={onSearch}
                 onFocus={onFocus}
                 onBlur={onBlur}

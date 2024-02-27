@@ -9,15 +9,9 @@ html {
 }
 
 :root {
-  --primary-font: 'Roboto', sans-serif;
-  --secondary-font: 'Inter', sans-serif;
-  ;
-  --primary-color: #1C58F8;
-  --secondary-color: #070F26;
   --color-silver: #dcdcdc;
   --color-black: #000000;
   --color-white: #FFFFFF;
-  --color-icons: #0B1232;
 }
 
 h1,

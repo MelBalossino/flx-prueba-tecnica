@@ -1,3 +1,5 @@
+//! Componente para agrupar búsqueda, filtro y botón de agregar usuario.
+
 import React from 'react';
 import SearchUser from '../SearchUser/SearchUser';
 import FilterUserByStatus from '../FilterUsersByStatus/FilterUserByStatus';

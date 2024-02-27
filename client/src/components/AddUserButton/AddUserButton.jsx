@@ -1,3 +1,5 @@
+//! Botón Agregar usuario con implementacion de modal reutilizable (UserModal) y dispatch de acción de Redux (addUser).
+
 import React, { useState } from 'react';
 import { Button } from 'antd';
 import UserModal from '../UserModal/UserModal';

@@ -1,3 +1,6 @@
+//! Lista de usuarios, paginación con limit y offset, uso hook personalizado (useDelayedLoader) para simular un
+//! tiempo de carga e implementación modal Eliminar usuario y Editar usuario. 
+
 import React, { useState, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Table, Spin } from 'antd';
@@ -55,10 +58,9 @@ const UserTable = () => {
     const columns = getColumns(showEditModal, showDeleteModal);
 
     return (
-
         <div className={styles['table-container']}>
             <div className={styles['ant-table-wrapper']}>
-                <Spin spinning={loading} tip="Loading...">
+                <Spin spinning={loading} tip="Cargando lista de usuarios...">
                     <Table
                         columns={columns}
                         dataSource={users}
@@ -92,9 +94,3 @@ const UserTable = () => {
 }
 
 export default UserTable;
-
-
-
-
-
-

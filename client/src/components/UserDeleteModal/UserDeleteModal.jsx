@@ -26,7 +26,7 @@ const UserDeleteModal = ({ userToDelete, isModalVisible, setIsModalVisible }) =>
                 onCancel={handleCancel}
                 okText="Eliminar"
                 cancelText="Cancelar"
-                okButtonProps={{ danger: true }}
+                okButtonProps={{ danger: true }}       //! <= Se utiliza la propiedad danger para resaltar el botón de eliminar.
             >
                 <p>¿Está seguro que quiere eliminar el usuario {userToDelete?.username}?</p>
             </Modal>
