@@ -11,11 +11,17 @@
 
 .logo {
     height: 70px;
-    padding-left: 60px;
+    padding-left: 40px;
     transition: transform 0.3s;
 }
 
 .logo:hover {
     cursor: pointer;
     transform: scale(1.1);
+}
+
+@media (min-width: 1281px) {
+    .logo {
+        padding-left: 370px;
+    }
 }

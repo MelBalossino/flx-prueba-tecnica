@@ -1,4 +1,6 @@
 .searchContainer {
     width: 290px;
     height: 40px;
+    display: flex;
+    align-items: center;
 }
