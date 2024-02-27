@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { v4 as uuidv4 } from 'uuid';
-import { getUsers, createUser, deleteUser, updateUser } from '../slices/usersSlice';
+import { getUsers, createUser, deleteUser, updateUser, searchUsers } from '../slices/usersSlice';
 
 const apiUrl = import.meta.env.VITE_BASE_URL;
 
@@ -50,5 +50,15 @@ export const removeUser = (id) => async (dispatch) => {
     } catch (error) {
         console.error("Error deleting user:", error);
         throw error;
+    }
+};
+
+export const searchUser = (searchTerm) => async (dispatch) => {
+    try {
+        const response = await axios.get(`${apiUrl}/users?name_like=${searchTerm}`);
+        const totalUsers = parseInt(response.headers['x-total-count'], 10);
+        dispatch(getUsers({ users: response.data, total: totalUsers }));
+    } catch (error) {
+        console.error("Error searching users:", error);
     }
 };
