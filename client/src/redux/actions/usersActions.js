@@ -1,9 +1,10 @@
 import axios from 'axios';
-import { getUsers, deleteUser, updateUser } from '../slices/usersSlice';
+import { v4 as uuidv4 } from 'uuid';
+import { getUsers, createUser, deleteUser, updateUser } from '../slices/usersSlice';
 
 const apiUrl = import.meta.env.VITE_BASE_URL;
 
-export const getAllUsers = (page = 1, limit = 9) => async (dispatch) => {
+export const getAllUsers = (page = 1, limit = 9) => async (dispatch) => {  //! <= Paginación con limit y offset.
     try {
         const response = await axios.get(`${apiUrl}/users`, {
             params: {
@@ -15,6 +16,18 @@ export const getAllUsers = (page = 1, limit = 9) => async (dispatch) => {
         dispatch(getUsers({ users: response.data, total: totalUsers }));
     } catch (error) {
         console.error("Error fetching users:", error);
+    }
+};
+
+export const addUser = (userData) => async (dispatch) => {
+    try {
+        const userWithId = { ...userData, id: uuidv4() };                //! <= Utilización de UUID para generar identificadores únicos de los nuevos registros.
+        const response = await axios.post(`${apiUrl}/users`, userWithId);
+        dispatch(createUser(response.data));
+        dispatch(getAllUsers());
+    } catch (error) {
+        console.error("Error adding user:", error);
+        throw error;
     }
 };
 

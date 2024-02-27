@@ -1,26 +1,57 @@
+// !Modal reutilizable para agregar o editar usuarios.
+
 import React, { useEffect } from 'react';
 import { Modal, Form, Input, Button, Select, InputNumber, Row, Col } from 'antd';
-import { useDispatch } from 'react-redux';
-import { editUser } from '../../redux/actions/usersActions';
-
 const { Option } = Select;
 
-const EditUserModal = ({ isVisible, handleCancel, user }) => {
+const UserModal = ({ isVisible, handleCancel, user, actionType, onSubmit }) => {
     const [form] = Form.useForm();
-    const dispatch = useDispatch();
-
-    const onSubmit = (values) => {
-        dispatch(editUser(user.id, values));
-        handleCancel();
-    };
 
     useEffect(() => {
-        form.setFieldsValue(user);       // <= Solución bug: para que "user" sea el usuario actual a editar
-    }, [user, form]);
+        if (!isVisible) {
+            form.resetFields();
+        } else {
+            if (user && actionType === 'edit') {
+                form.setFieldsValue(user);
+            } else if (actionType === 'add') {
+                form.resetFields();
+            }
+        }
+    }, [isVisible, user, form, actionType]);
+
+    const onOk = () => {
+        form.validateFields()
+            .then(values => {
+                onSubmit(values);
+                handleCancel();
+            })
+            .catch(info => {
+                console.log('Validate Failed:', info);
+            });
+    };
 
     return (
-        <Modal title="Editar Usuario" open={isVisible} onCancel={handleCancel} footer={null}>
-            <Form form={form} initialValues={user} onFinish={onSubmit} requiredMark={false} layout='vertical'>
+        <Modal
+            title={actionType === 'edit' ? 'Editar usuario' : 'Agregar Usuario'}
+            open={isVisible}
+            onCancel={handleCancel}
+            onOk={onOk}
+            footer={[
+                <Button 
+                style={{ textAlign: 'right' }} 
+                key="submit" 
+                type="primary" 
+                onClick={onOk}>
+                    {actionType === 'edit' ? 'Editar' : 'Agregar'}
+                </Button>,
+            ]}
+            destroyOnClose
+        >
+            <Form 
+            form={form} 
+            layout='vertical' 
+            onFinish={onSubmit} 
+            requiredMark={false}>
                 <Row gutter={24}>
                     <Col span={12}>
                         <Form.Item
@@ -71,7 +102,7 @@ const EditUserModal = ({ isVisible, handleCancel, user }) => {
                             { required: true, message: 'La edad es requerida' },
                             { type: 'number', message: 'La edad debe ser un número' },
                             {
-                                validator: (_, value) =>           // <= Solución bug: validación personalizada para evitar el error que surge en cómo antd maneja la validación de InputNumber con las reglas min y max.
+                                validator: (_, value) =>           //! <= Solución bug: validación personalizada para evitar el error que surge en cómo antd maneja la validación de InputNumber con las reglas min y max.
                                     value >= 0 && value <= 120
                                         ? Promise.resolve()
                                         : Promise.reject(new Error('La edad debe estar entre 0 y 120')),
@@ -81,14 +112,9 @@ const EditUserModal = ({ isVisible, handleCancel, user }) => {
                         </Form.Item>
                     </Col>
                 </Row>
-                <div style={{ textAlign: 'right' }}>
-                    <Button type="primary" htmlType="submit">
-                        Editar usuario
-                    </Button>
-                </div>
             </Form>
         </Modal>
     );
 };
 
-export default EditUserModal;
+export default UserModal;

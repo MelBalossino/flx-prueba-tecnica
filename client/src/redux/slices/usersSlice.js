@@ -13,9 +13,13 @@ export const usersSlice = createSlice({
             state.users = action.payload.users;
             state.total = action.payload.total;
         },
+        createUser: (state, action) => {
+            state.users.push(action.payload);
+            state.total += 1;
+        },
         updateUser: (state, action) => {
             const index = state.users.findIndex(user => user.id === action.payload.id);
-            if(index !== -1) {
+            if (index !== -1) {
                 state.users[index] = action.payload;
             }
         },
@@ -26,5 +30,5 @@ export const usersSlice = createSlice({
     },
 });
 
-export const { getUsers, deleteUser, updateUser } = usersSlice.actions;
+export const { getUsers, createUser, deleteUser, updateUser } = usersSlice.actions;
 export default usersSlice.reducer;
