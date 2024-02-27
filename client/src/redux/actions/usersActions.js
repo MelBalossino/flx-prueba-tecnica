@@ -62,3 +62,15 @@ export const searchUser = (searchTerm) => async (dispatch) => {
         console.error("Error searching users:", error);
     }
 };
+
+export const filterUsersByStatus = (status) => async (dispatch) => {
+    try {
+        const response = status === 'all'
+            ? await axios.get(`${apiUrl}/users`)
+            : await axios.get(`${apiUrl}/users`, { params: { status } });
+        const totalUsers = parseInt(response.headers['x-total-count'], 10);
+        dispatch(getUsers({ users: response.data, total: totalUsers }));
+    } catch (error) {
+        console.error("Error filtering users by status:", error);
+    }
+};

@@ -40,13 +40,7 @@ const SearchUser = () => {
                 .ant-input-group-addon button.ant-btn {
                     background-color: transparent !important;
                     color: #494848 !important;
-                    border: 1px solid #9c9c9c !important;
-                }
-                .ant-input-wrapper input.ant-input {
-                    color: #000000 !important;
-                }
-                .ant-input-affix-wrapper {
-                border: 1px solid #9c9c9c !important;
+                    border: 1px solid #cdc8c8 !important;
                 }
                 `}
             </style>
