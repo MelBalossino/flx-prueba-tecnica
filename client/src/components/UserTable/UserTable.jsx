@@ -1,11 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Table } from 'antd';
+import { Table, Spin } from 'antd';
 import { getAllUsers, editUser } from "../../redux/actions/usersActions";
 import styles from "./UserTable.module.css";
 import { getColumns } from "./columns";
 import UserDeleteModal from "../UserDeleteModal/UserDeleteModal";
 import UserModal from "../UserModal/UserModal";
+import useDelayedLoader from "../../hooks/useDelayedLoader";
 
 const UserTable = () => {
     const dispatch = useDispatch();
@@ -16,9 +17,8 @@ const UserTable = () => {
     const [currentUser, setCurrentUser] = useState(null);
     const [modalActionType, setModalActionType] = useState('edit');
 
-    useEffect(() => {                                                     //! <= Paginación con limit y offset
-        const page = currentPage;
-        dispatch(getAllUsers(page, 9));
+    const fetchUsers = useCallback(() => {
+        return dispatch(getAllUsers(currentPage, 9));
     }, [dispatch, currentPage]);
 
     const handleTableChange = (pagination) => {
@@ -51,22 +51,26 @@ const UserTable = () => {
         }
     };
 
+    const loading = useDelayedLoader(fetchUsers);            //! <= Uso de hook personalizado.
     const columns = getColumns(showEditModal, showDeleteModal);
 
     return (
+
         <div className={styles['table-container']}>
             <div className={styles['ant-table-wrapper']}>
-                <Table
-                    columns={columns}
-                    dataSource={users}
-                    rowKey="id"                           //! <= Key
-                    pagination={{
-                        current: currentPage,
-                        pageSize: 9,
-                        total: total,
-                        position: ['bottomRight']
-                    }}
-                    onChange={handleTableChange} />
+                <Spin spinning={loading} tip="Loading...">
+                    <Table
+                        columns={columns}
+                        dataSource={users}
+                        rowKey="id"                            //! <= Key
+                        pagination={{
+                            current: currentPage,
+                            pageSize: 9,
+                            total: total,
+                            position: ['bottomRight']
+                        }}
+                        onChange={handleTableChange} />
+                </Spin>
                 <UserModal
                     user={currentUser}
                     isVisible={isUserModalVisible}
