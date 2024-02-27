@@ -1,7 +1,7 @@
 import React from "react";
 import { Tag, Space } from 'antd';
 
-export const columns = [
+export const getColumns = (showModal) => [
     {
         title: 'Usuario',
         dataIndex: 'username',
@@ -52,7 +52,7 @@ export const columns = [
         render: (_, record) => (
             <Space size="middle">
                 <a>Editar</a>
-                <a>Eliminar</a>
+                <a onClick={() => showModal(record)}>Eliminar</a>
             </Space>
         ),
     },

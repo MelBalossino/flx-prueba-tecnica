@@ -1,14 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Table } from 'antd';
 import { getAllUsers } from "../../redux/actions/usersActions";
 import styles from "./UserTable.module.css";
-import { Table } from 'antd';
-import { columns } from "./columns";
+import { getColumns } from "./columns";
+import UserDeleteModal from "../UserDeleteModal/UserDeleteModal";
 
 const UserTable = () => {
     const dispatch = useDispatch();
     const { users, total } = useSelector((state) => state.users);
     const [currentPage, setCurrentPage] = useState(1);
+    const [isModalVisible, setIsModalVisible] = useState(false);
+    const [userToDelete, setUserToDelete] = useState(null);
 
     useEffect(() => {
         const page = currentPage;
@@ -18,6 +21,13 @@ const UserTable = () => {
     const handleTableChange = (pagination) => {
         setCurrentPage(pagination.current);
     }
+
+    const showModal = (user) => {
+        setUserToDelete(user);
+        setIsModalVisible(true);
+    };
+
+    const columns = getColumns(showModal);
 
     return (
         <div className={styles['table-container']}>
@@ -33,6 +43,10 @@ const UserTable = () => {
                         position: ['bottomRight']
                     }}
                     onChange={handleTableChange} />
+                {userToDelete && (
+                    <UserDeleteModal userToDelete={userToDelete} isModalVisible={isModalVisible} setIsModalVisible={setIsModalVisible} />
+
+                )}
             </div>
         </div>
     );
