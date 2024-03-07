@@ -1,8 +1,11 @@
-![Logo](https://flexxus.com.ar/wp-content/uploads/elementor/thumbs/logo-flexxus-header-pv8liah8khv6xfynvz03so9v98sk2tr50hts9we7dk.png)
-# Prueba Técnica I+D Team - CRUD de Usuarios en React
+<h1 align="center"> Prueba Técnica I+D Team - CRUD de Usuarios en React </h1>
+<br>
+<div align="center">
+<img src="\client\public\img\logo-flexxus.png" alt="" />
+</div>
 
 ## 💻 Sobre el proyecto
-Prueba técnica para desarrolladores FullStack, que consta de la creación de un CRUD de usuarios utilizando React. 
+Solución a la prueba técnica para desarrolladores FullStack, que consta de la creación de un CRUD de usuarios utilizando React. 
 
 ## 🛠️ Se implementó 
   - Ejercicios de algoritmos y estructuras de datos en JavaScript ubicados en la carpeta "docs"
@@ -10,7 +13,7 @@ Prueba técnica para desarrolladores FullStack, que consta de la creación de un
   - React - Vite
   - Git || GitHub
   - CRUD completo (crear, leer, actualizar y eliminar usuarios)
-  - Validaciones en los formularios con Ant Design (antd).
+  - Validaciones en los formularios con Ant Design (antd) pra garantizar la integridad de los datos.
   - Uso de componentes funcionales y hooks (también se creó un hook personalizado).
   - Gestión del estado - uso de Redux Toolkit.
   - Uso de UUID para generar identificadores únicos para nuevos registros de usuarios.
@@ -18,6 +21,9 @@ Prueba técnica para desarrolladores FullStack, que consta de la creación de un
   - Estilizado con Ant Design y CSS Modules.
   - Implementación de un setTimeout en un hook personalizado para simular un tiempo de carga y mostrar un loader en la tabla de lista de usuarios.
   - Variables de entorno.
+  - Búsqueda por nombre por coincidencia.
+  - Filtrado por el estado del usuario (active/inactive).
+  - Paginado de registros utilizando limit & offset.
 
 <div align="center">
     <a href="https://skillicons.dev">
@@ -28,132 +34,41 @@ Prueba técnica para desarrolladores FullStack, que consta de la creación de un
 
 ## 📸 Site preview
 <div align="center">
-<img src="./src/assets/readme/Home.PNG" alt="" width="412px" /> 
+<img src="\client\src\assets\readme\Home.PNG" alt="" width="1000px" /> 
 </div>
 <br /><br />
 <div align="center">
-<img src="./src/assets/readme/Agregar-usuario.PNG" alt="" width="1000px" />
+<img src="\client\src\assets\readme\Agregar-usuario.PNG" alt="" width="1000px" />
 </div>
 <br /><br />
 <div align="center">
-<img src="./src/assets/readme/Editar-usuario.PNG" alt="" width="412px" /> 
+<img src="\client\src\assets\readme\Editar-usuario.PNG" alt="" width="1000px" /> 
 </div>
 <br /><br />
 <div align="center">
-<img src="./src/assets/readme/Eliminar-usuario.PNG" alt="" width="412px" /> 
+<img src="\client\src\assets\readme\Eliminar-usuario.PNG" alt="" width="1000px" /> 
 </div>
 <br /><br />
 <div align="center">
-<img src="./src/assets/readme/Bisqueda-por-coincidencias.PNG" alt="" width="412px" /> 
+<img src="\client\src\assets\readme\Busqueda-por-coincidencias.PNG" alt="" width="1000px" /> 
 </div>
 <br /><br />
 <div align="center">
-<img src="./src/assets/readme/Filtrar-por-estado.PNG" alt="" width="412px" /> 
+<img src="\client\src\assets\readme\Filtrar-por-estado.PNG" alt="" width="1000px" /> 
 </div>
 <br /><br />
 
-
-## Instrucciones y recursos
-
-### 1. Fork del Repositorio
-
-Haz un fork de este repositorio haciendo clic en el botón "Fork" en la esquina superior derecha de esta página. Esto creará una copia del repositorio en tu cuenta de GitHub.
-
-Luego deberás seguir las instrucciones de github, para clonar el repositorio en tu maquina de manera local.
-
-
-### 2. Inicializar el proyecto
-
-Entra al directorio del proyecto, dentro del repositorio tendrás `dos carpetas`:
-
-#### DOCS - `LEER CON ATENCIÓN`
-En esta carpeta encontrarás `ejercicios de algoritmos y estructuras de datos en JavaScript`, con sus respectivos test, también tendrás un readme.md con las instrucciones del mismo.
-
-Además tendrás tendrás una lista de `consultas SQL`que deberás resolver.
-
-#### API
-
-
-Tendras disponible un `json-server` con una lista de usuarios ficticios. 
-Si nunca lo utilizaste te dejamos la documentación en la sección de [recursos](#sources).
-
-Para inicializar el servidor deberas ejecutar los siguientes comandos:
-
-```bash
-cd ./api
-npm install
-npm run server
-```
-Por defecto se inicializará en el puerto 4000.
-
-#### CLIENT
-Dentro del repositorio deberas crear una carpeta llamada `client`. 
-Dentro de la misma deberá estar el frontend en React. Podrás usar el comando que prefieras para inicializar el proyecto. 
-Te dejamos una sugerencia.
-
-```bash
-npx create-react-app client
-npm start
-```
-Tambien podrás usar otras alternativas como `vite` o similares. (opcional)
-
-Deberas instalar la librería `antd`, donde tendrás muchos de los componentes que necesitaras para realizar el CRUD. Si nunca la utilizaste podes consultar la documentación que dejamos en la sección de [recursos](#sources).
-
-```bash
-npm install antd
-```
-
-
-### 3. Normas de desarrollo
-
-Desarrolla la aplicación siguiendo las especificaciones proporcionadas. Asegúrate de seguir las siguientes normas de desarrollo:
-
-- Utiliza React para construir la interfaz de usuario.
-- La aplicación debe ser un CRUD completo, permitiendo crear, leer, actualizar y eliminar usuarios.
-- Implementa validaciones en los formularios para garantizar la integridad de los datos.
-- Utiliza componentes funcionales y hooks siempre que sea posible.
-- Escribe código limpio y legible. Utiliza nombres de variables descriptivos y sigue las convenciones de estilo de código de JavaScript y React.
-- Gestiona el estado de la aplicación de manera eficiente y evita el uso excesivo de prop drilling.
-- Comenta tu código cuando sea necesario para explicar partes complejas o importantes del mismo.
-- Utiliza React Context o Redux para el estado global de la aplicación.
-- Recomendamos utilizar UUID para la generación de indentificadores únicos de los registros de los usuarios.
-- Se debe respetar el diseño en Figma que se les adjunto en la sección de [recursos](#sources).
-- Se debe utilizar la librería antd y css/less/sass en caso de ser necesario.
-- Recomendamos reutilizar la mayor cantidad de componentes posibles, y evitar el codigo repetitivo.
-
-## 4. Requerimientos del software
-
-A continuación listaremos los requerimientos del software a desarrollar. 
-Es necesario simular un tiempo de carga entre las peticiones con un setTimeOut, y mostrar un Loader en los componentes afectados.
-
-- Listar usuarios.
-- Crear usuarios.
-- Editar usuarios.
-- Eliminar usuarios.
-- Buscar por nombre o apellido por coincidencia.
-- Filtrar por el estado del usuario (active/inactive).
-- Paginado de registros utilizando limit & offset.
-
-### 5. Entrega del proyecto
-
-Cuando hayas terminado el desarrollo y estés satisfecho con el resultado, sube tus cambios a un repositorio remoto utilizando los comandos de git:
-
-```bash
-git add .
-git commit -m "[Mensaje del commit]"
-git push origin main
-```
-
-¡Eso es todo! Esperamos que disfrutes trabajando en este proyecto y estamos ansiosos por ver tu solución. Si tienes alguna pregunta o necesitas ayuda, no dudes en contactarnos.
-
-<a id="sources"></a>
-## Recursos 
+## 📌 Recursos 
 [🎨 Link al diseño de Figma](https://shorturl.at/rwxV4)
 
 [🗄️ Documentación `antd`](https://4x.ant.design/components/overview/)
 
 [🗄️ Documentación `json-server`](https://github.com/typicode/json-server)
+<br /><br />
 
+## 📧 Contacto
+¿Tienes un proyecto en mente? Conectémonos y hagamos que las cosas sucedan! Puedes escribirme a melodibalossino@gmail.com o seguirme en [LinkedIn](https://www.linkedin.com/in/melody-balossino-26745021b).
+<br /><br />
 
-## Licencia
+## 🔒 Licencia
 Este proyecto está bajo la Licencia MIT. Consulta el archivo `LICENSE` para obtener más detalles.
