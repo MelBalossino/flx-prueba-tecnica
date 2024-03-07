@@ -1,12 +1,59 @@
 ![Logo](https://flexxus.com.ar/wp-content/uploads/elementor/thumbs/logo-flexxus-header-pv8liah8khv6xfynvz03so9v98sk2tr50hts9we7dk.png)
 # Prueba Técnica I+D Team - CRUD de Usuarios en React
 
-¡Bienvenido a la prueba técnica para desarrolladores FullStack de Flexxus! 
-En este proyecto, te desafiamos a construir un CRUD de usuarios utilizando React. 
-`Sigue las instrucciones a continuación para comenzar`.
+## 💻 Sobre el proyecto
+Prueba técnica para desarrolladores FullStack, que consta de la creación de un CRUD de usuarios utilizando React. 
+
+## 🛠️ Se implementó 
+  - Ejercicios de algoritmos y estructuras de datos en JavaScript ubicados en la carpeta "docs"
+  - Consultas SQL en la carpeta "docs"
+  - React - Vite
+  - Git || GitHub
+  - CRUD completo (crear, leer, actualizar y eliminar usuarios)
+  - Validaciones en los formularios con Ant Design (antd).
+  - Uso de componentes funcionales y hooks (también se creó un hook personalizado).
+  - Gestión del estado - uso de Redux Toolkit.
+  - Uso de UUID para generar identificadores únicos para nuevos registros de usuarios.
+  - Se siguió el diseño de Figma proporcionado, de 1280 x 885 px, pero también se optimizó para pantallas de hasta 1400 px, ya que se usaron media queries.
+  - Estilizado con Ant Design y CSS Modules.
+  - Implementación de un setTimeout en un hook personalizado para simular un tiempo de carga y mostrar un loader en la tabla de lista de usuarios.
+  - Variables de entorno.
+
+<div align="center">
+    <a href="https://skillicons.dev">
+      <img src="https://skillicons.dev/icons?i=html,css,js,react,vite,redux,git,github,vscode,figma,npm" />
+    </a>
+</div>
+<br />
+
+## 📸 Site preview
+<div align="center">
+<img src="./src/assets/readme/Home.PNG" alt="" width="412px" /> 
+</div>
+<br /><br />
+<div align="center">
+<img src="./src/assets/readme/Agregar-usuario.PNG" alt="" width="1000px" />
+</div>
+<br /><br />
+<div align="center">
+<img src="./src/assets/readme/Editar-usuario.PNG" alt="" width="412px" /> 
+</div>
+<br /><br />
+<div align="center">
+<img src="./src/assets/readme/Eliminar-usuario.PNG" alt="" width="412px" /> 
+</div>
+<br /><br />
+<div align="center">
+<img src="./src/assets/readme/Bisqueda-por-coincidencias.PNG" alt="" width="412px" /> 
+</div>
+<br /><br />
+<div align="center">
+<img src="./src/assets/readme/Filtrar-por-estado.PNG" alt="" width="412px" /> 
+</div>
+<br /><br />
 
 
-## Instrucciones
+## Instrucciones y recursos
 
 ### 1. Fork del Repositorio
 
