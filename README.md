@@ -13,7 +13,7 @@ Solución a la prueba técnica para desarrolladores FullStack, que consta de la 
   - React - Vite
   - Git || GitHub
   - CRUD completo (crear, leer, actualizar y eliminar usuarios)
-  - Validaciones en los formularios con Ant Design (antd) pra garantizar la integridad de los datos.
+  - Validaciones en los formularios con Ant Design (antd) para garantizar la integridad de los datos.
   - Uso de componentes funcionales y hooks (también se creó un hook personalizado).
   - Gestión del estado - uso de Redux Toolkit.
   - Uso de UUID para generar identificadores únicos para nuevos registros de usuarios.
