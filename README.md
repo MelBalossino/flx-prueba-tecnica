@@ -1,4 +1,7 @@
 <h1 align="center"> Prueba Técnica I+D Team - CRUD de Usuarios en React </h1>
+<div align="center">
+   🚩 ESTADO: Finalizado
+</div>
 <br>
 <div align="center">
 <img src="\client\public\img\logo-flexxus.png" alt="" />
